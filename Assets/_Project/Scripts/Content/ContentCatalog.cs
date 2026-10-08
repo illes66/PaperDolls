@@ -9,12 +9,24 @@ namespace PaperDollsGame.Content
     {
         [SerializeField] private List<ItemDefinition> items = new List<ItemDefinition>();
         [SerializeField] private List<EventDefinition> events = new List<EventDefinition>();
+        [SerializeField] private List<AlbumDefinition> albums = new List<AlbumDefinition>();
 
         private Dictionary<string, ItemDefinition> itemsById;
         private Dictionary<string, EventDefinition> eventsById;
+        private Dictionary<string, AlbumDefinition> albumsById;
 
         public IReadOnlyList<ItemDefinition> Items { get { return items; } }
         public IReadOnlyList<EventDefinition> Events { get { return events; } }
+        public IReadOnlyList<AlbumDefinition> Albums { get { return albums; } }
+
+        public AlbumDefinition GetAlbum(string id)
+        {
+            EnsureLookups();
+            AlbumDefinition definition;
+            if (string.IsNullOrEmpty(id) || !albumsById.TryGetValue(id, out definition))
+                throw new KeyNotFoundException("No album definition exists for ID '" + id + "'.");
+            return definition;
+        }
 
         public ItemDefinition GetItem(string id)
         {
@@ -47,13 +59,15 @@ namespace PaperDollsGame.Content
 
         private void EnsureLookups()
         {
-            if (itemsById != null && eventsById != null)
+            if (itemsById != null && eventsById != null && albumsById != null)
                 return;
 
             itemsById = new Dictionary<string, ItemDefinition>(StringComparer.Ordinal);
             eventsById = new Dictionary<string, EventDefinition>(StringComparer.Ordinal);
             AddDefinitions(items, itemsById, "item", definition => definition.Id);
             AddDefinitions(events, eventsById, "event", definition => definition.Id);
+            albumsById = new Dictionary<string, AlbumDefinition>(StringComparer.Ordinal);
+            AddDefinitions(albums, albumsById, "album", definition => definition.Id);
         }
 
         private static void AddDefinitions<T>(
@@ -82,6 +96,7 @@ namespace PaperDollsGame.Content
         {
             itemsById = null;
             eventsById = null;
+            albumsById = null;
         }
 
 #if UNITY_EDITOR
@@ -89,6 +104,7 @@ namespace PaperDollsGame.Content
         {
             itemsById = null;
             eventsById = null;
+            albumsById = null;
         }
 #endif
     }
