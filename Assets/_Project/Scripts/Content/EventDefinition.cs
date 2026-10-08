@@ -10,6 +10,9 @@ namespace PaperDollsGame.Content
         [SerializeField] private string tag;
         [SerializeField] private int points;
 
+        public TagScoreRule() { }
+        internal TagScoreRule(string tag, int points) { this.tag = tag; this.points = points; }
+
         public string Tag { get { return tag; } }
         public int Points { get { return points; } }
     }
@@ -19,6 +22,9 @@ namespace PaperDollsGame.Content
     {
         [SerializeField] private ItemSlot slot;
         [SerializeField] private int points;
+
+        public SlotScoreRule() { }
+        internal SlotScoreRule(ItemSlot slot, int points) { this.slot = slot; this.points = points; }
 
         public ItemSlot Slot { get { return slot; } }
         public int Points { get { return points; } }
@@ -34,6 +40,17 @@ namespace PaperDollsGame.Content
         [SerializeField] private List<SlotScoreRule> slotScoring = new List<SlotScoreRule>();
         [SerializeField] private string rewardCurrencyId = "GEMS";
         [SerializeField, Min(0)] private int rewardAmount;
+
+        internal void Initialize(string id, string displayName, string prompt, List<TagScoreRule> tagScoring, List<SlotScoreRule> slotScoring, string rewardCurrencyId, int rewardAmount)
+        {
+            this.id = id;
+            this.displayName = displayName;
+            this.prompt = prompt;
+            this.tagScoring = tagScoring ?? new List<TagScoreRule>();
+            this.slotScoring = slotScoring ?? new List<SlotScoreRule>();
+            this.rewardCurrencyId = rewardCurrencyId;
+            this.rewardAmount = rewardAmount;
+        }
 
         public string Id { get { return id; } }
         public string DisplayName { get { return displayName; } }

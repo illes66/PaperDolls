@@ -24,6 +24,16 @@ namespace PaperDollsGame.Content
         [SerializeField] private Sprite icon;
         [SerializeField] private GameObject visualPrefab;
 
+        internal void Initialize(string id, string displayName, ItemSlot slot, List<string> tags, Sprite icon, GameObject visualPrefab)
+        {
+            this.id = id;
+            this.displayName = displayName;
+            this.slot = slot;
+            this.tags = tags ?? new List<string>();
+            this.icon = icon;
+            this.visualPrefab = visualPrefab;
+        }
+
         public string Id { get { return id; } }
         public string DisplayName { get { return displayName; } }
         public ItemSlot Slot { get { return slot; } }

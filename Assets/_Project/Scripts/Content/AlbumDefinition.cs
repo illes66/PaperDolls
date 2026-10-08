@@ -21,6 +21,16 @@ namespace PaperDollsGame.Content
         [SerializeField] private int totalPages = 20;
         [SerializeField] private List<ItemDefinition> starterItems = new List<ItemDefinition>();
 
+        internal void Initialize(string id, string displayName, string description, List<ItemDefinition> catalogItems, List<ItemDefinition> starterItems, int totalPages)
+        {
+            this.id = id;
+            this.displayName = displayName;
+            this.description = description;
+            this.catalogItems = catalogItems ?? new List<ItemDefinition>();
+            this.starterItems = starterItems ?? new List<ItemDefinition>();
+            this.totalPages = totalPages;
+        }
+
         public string Id { get { return id; } }
         public string DisplayName { get { return displayName; } }
         public string Description { get { return description; } }

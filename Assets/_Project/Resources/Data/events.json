@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "events": [
+    {
+      "id": "evt_birthday_park",
+      "name": "Cumpleaños Parque",
+      "description": "Un día especial en el parque",
+      "tags": ["Casual", "Playful", "Happy"],
+      "tagRules": [
+        {"tag": "Playful", "points": 10},
+        {"tag": "Casual", "points": 5}
+      ],
+      "slotRules": [
+        {"slot": "Hair", "points": 5},
+        {"slot": "Dress", "points": 10},
+        {"slot": "Shoes", "points": 3}
+      ],
+      "reward": {"currency": "GOLD", "amount": 100}
+    }
+  ]
+}
