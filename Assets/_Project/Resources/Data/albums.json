@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "albums": [
+    {
+      "id": "album_001",
+      "name": "Fiesta en el Parque",
+      "description": "Álbum de prueba",
+      "itemIds": ["item_flower_crown", "item_party_dress", "item_red_shoes"],
+      "starterItemIds": ["item_red_shoes"],
+      "totalPages": 20
+    }
+  ]
+}

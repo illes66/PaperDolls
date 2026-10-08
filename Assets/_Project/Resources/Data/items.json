@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "item_flower_crown",
+      "name": "Corona de Flores",
+      "slot": "Accessory",
+      "tags": ["Playful", "Nature", "Casual"],
+      "iconPath": "Sprites/Items/flower_crown",
+      "prefabPath": "Prefabs/Items/flower_crown"
+    },
+    {
+      "id": "item_party_dress",
+      "name": "Vestido de Fiesta",
+      "slot": "Dress",
+      "tags": ["Playful", "Happy"],
+      "iconPath": "Sprites/Items/party_dress",
+      "prefabPath": "Prefabs/Items/party_dress"
+    },
+    {
+      "id": "item_red_shoes",
+      "name": "Zapatos Rojos",
+      "slot": "Shoes",
+      "tags": ["Casual"],
+      "iconPath": "Sprites/Items/red_shoes",
+      "prefabPath": "Prefabs/Items/red_shoes"
+    }
+  ]
+}
